@@ -1,15 +1,3 @@
 {
-  "name": "niizuma-yae-bot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "discord.js": "^14.14.1"
-  }
+ "Discord.jsを" : "入れたときに勝手に作られる"
 }
