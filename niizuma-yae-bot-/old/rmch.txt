@@ -1,0 +1,35 @@
+const { Events } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
+const { rm, rmn, rmh, rme, rms, rmo } = require('../commands/json/rm.json');
+
+module.exports = {
+	name: Events.MessageCreate,
+	async execute(message) {
+        if (message.author.bot) return;
+        if (message.content == 'y!rmc h' || message.content == '八恵ちゃん！3曲選んで！HARDで！') {     
+
+            var number = [];
+
+        for (var i = 0; i < 3; i++) {
+            const random = Math.floor(Math.random() * rm.length);
+            number.push(random);
+        }
+		    const user = message.author;
+
+            const exampleEmbed = new EmbedBuilder()
+	        .setColor('Random')
+	        .setTitle(`${user}さん！`)
+	        .setAuthor({ name: `${user.displayName}`, iconURL: `${user.displayAvatarURL()}`})
+	        //.setThumbnail(``)
+	        .setDescription(`3曲選んでみました！`)
+	        .addFields(
+		        { name: `${rm[number[0]]}`, value: `${rmh[number[0]]}`, inline: true },
+		        { name: `${rm[number[1]]}`, value: `${rmh[number[1]]}`, inline: true },
+		        { name: `${rm[number[2]]}`, value: `${rmh[number[2]]}`, inline: true }
+	        )
+	        .setTimestamp()
+
+            await message.channel.send({ embeds: [exampleEmbed] });
+         }
+	},
+};
